@@ -1,5 +1,5 @@
 # PERN-Ecommerce-Store-project
-This is **Portfolio Project #5** for my Full-stack web development course on Codecademy. This app is an Ecommerce store, named ***Reef Budz***,  where aquarists can browse and purchase saltwater creatures and coral fragments for their own saltwater reef tanks. Built using PERN (*PostgreSQL*, *Express*, *React*, *Node*) stack, this web app is a fully-functioning Ecommerce store with features common in most real-world Ecommerce stores.
+This is **Portfolio Project #5** for my Full-stack web development course on Codecademy (and my last one). This app is an Ecommerce store, named ***Reef Budz***,  where aquarists can browse and purchase saltwater creatures and coral fragments for their own saltwater reef tanks. Built using PERN (*PostgreSQL*, *Express*, *React*, *Node*) stack, this web app is a fully-functioning Ecommerce store with features common in most real-world Ecommerce stores.
 
 **Read more to learn the technology behind the app, the app's features, and how the app operates via simulated workflow example!**
 
