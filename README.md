@@ -91,10 +91,9 @@ This is **Portfolio Project #5** for my Full-stack web development course on Cod
 
 ## III. Live Site Demo Walkthrough & Screenshots
 
-🔗 **Live Site:** [store.livedemoapp.com](https://store.livedemoapp.com) *(Right-click to open in new tab for best experience)*
+🔗 **Live Site:** [pern-saltwater-fish-ecommerce-store.livedemoapp.com](https://pern-saltwater-fish-ecommerce-store.livedemoapp.com/) *(Right-click to open in new tab for best experience)*
 
-
-<ins>**NOTE**</ins>: The above site link's domain may change, but the workflow and url routes should stay the same. I'll go over the app's main pages in the order users would typically see in an E-commerce lifecycle workflow. 
+<ins>**NOTE**</ins>: The above site link's domain may change from time to time, but the workflow and Url routes should stay the same. I'll go over the app's main pages in the order users would typically see in an E-commerce lifecycle workflow. 
 
 ### 1. Home Page 
 The homepage—*whose url routes end with '../products/all'*—is the default page for the app. Here the user can browse through a variety of products. On the top, there's a header menu with several buttons and a search bar. The buttons left of the search bar are ***category*** buttons that display products based on selected category—*button highlighted dark blue*—when selected; only the ***all*** button shows all products. At the bottom of the products display is the pagination page button(s) which is used to browse products.
