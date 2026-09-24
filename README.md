@@ -96,7 +96,7 @@ Read more to learn about the technology behind the app, its features, and how it
 ---
 ### Production Deployment
 
-The **live** portfolio version of this application is deployed using AWS infrastructure. The React/Vite frontend is hosted with Amazon S3 and CloudFront, while the Node.js/Express backend runs on Amazon EC2 behind Nginx. The production PostgreSQL database is hosted with Supabase.
+The *live* portfolio version of this application is deployed using AWS infrastructure. The **React**/**Vite** frontend is hosted with **Amazon S3** and **CloudFront**, while the **Node.js**/**Express** backend runs on **Amazon EC2** behind **Nginx**. The production **PostgreSQL** database is hosted with **Supabase**.
 
 The local setup instructions later on <ins>**do not**</ins> require AWS and can be used to run the application locally.
 
