@@ -1,17 +1,23 @@
-# PERN-Ecommerce-Store-project
-This is **Portfolio Project #5** for my Full-stack web development course on Codecademy (and my last one). This app is an Ecommerce store, named ***Reef Budz***,  where aquarists can browse and purchase saltwater creatures and coral fragments for their own saltwater reef tanks. Built using PERN (*PostgreSQL*, *Express*, *React*, *Node*) stack, this web app is a fully-functioning Ecommerce store with features common in most real-world Ecommerce stores.
+# PERN Saltwater Fish E-commerce Store
 
-**Read more to learn the technology behind the app, the app's features, and how the app operates via simulated workflow example!**
+Reef Budz is a full-stack PERN (PostgreSQL, Express, React, Node.js) e-commerce application for a saltwater fish aquarium store. Visiting users can:
+ - browse ***saltwater fish***, ***invertebrates***, and ***coral products***
+ - manage a shopping cart
+ - create and authenticate accounts
+ - complete simulated purchases through Stripe
+ - manage profile information
+ - and reviewing order history and order details.
 
+Read more to learn about the technology behind the app, its features, and how it operates through a simulated e-commerce workflow.
 ---
 
 ## I. Project Overview
 
 - **What is this app?**
-  It's a full-fledged Ecommerce site that sells Saltwater creatures and coral reef fragments for saltwater reef tanks. Users can browse the site, add products to cart, order products at    checkout, and view order details and history. 
+  It's a full-fledged E-commerce site that sells saltwater creatures and coral reef fragments for saltwater reef tanks. Users can browse the site, add products to their cart, purchase products at checkout, and view order details and history.
 
 - **What does it do?**
-  It lets users browse products (tank creatures and coral frags), register/login account, purhcase products via checkout, view order history and details, etc.
+  It lets users browse products (tank creatures and coral frags), register/login to an account, purchase products via checkout, and view order history and details.
 
 - **Who is it for?**
   Anyone who wants a piece of the ocean with their own saltwater reef tank.
@@ -32,15 +38,15 @@ This is **Portfolio Project #5** for my Full-stack web development course on Cod
 
 ## II. Tech Stack
 
-- **Vite**            — Main Web app development and build tool. Enables dividing the code between **React** frontend and **Node**/**Express** backend.
+- **Vite**            — Frontend development and build tool used for the **React** client application.
 - **React**           — Frontend library for building user interfaces and their components.
 - **Node**            — Provides a JavaScript runtime environment to run server-side scripts on backend.
 - **Express**         — Backend framework used to define API endpoints that interact with database. Also used to setup a web server for handling HTTP/HTTPS request from React frontend/client-side.
 - **PostgreSQL**      — Database of choice for app. Used to store product data, user accounts, and order history and details of users.
 - **Canva.com**       — Used for image editing, espcially for the product card and background images throughout the app.
-- **Render.com**      — Cloud platform used to host the **React** frontend/client-side as well as the **Node**/**Express** backend.
-- **Neon.com**        — Cloud platform used to host web app's ***PostgreSQL*** database. Database interfaces with the app hosted on **Render.com**.
-- **Hostinger.com**   — Hosting site used to obtain a domain name since authnetication cookies won't properly be sent from app to browser otherwise.
+- **Render.com**      — Cloud platform that can be used to host the **React** frontend/client-side as well as the **Node**/**Express** backend.
+- **Neon.com**        — Cloud platform that can be used to host the app's ***PostgreSQL*** database.
+- **Hostinger.com**   — Used to manage the custom domain name for the live application.
 - **CSS**             — used for styling purposes.
 - **React packages**  — imported packages for both frontend/client-side (**React**) as well as backend/server-side (**Node**/**Express**):
 
@@ -55,7 +61,7 @@ This is **Portfolio Project #5** for my Full-stack web development course on Cod
 | `@reduxjs/toolkit`      | Simplifies Redux logic with built-in methods like `createSlice()`, `configureStore()`, etc.                 |
 | `@stripe/...`           | Set of dependencies for enabling ***Stripe*** payment processing during product checkout.                   |
 | `@tanstack/react-table` | React library for building customizable tables, with features like sorting and filtering.                   |
-| `axios`                 | Handles HTTP requests to fetch subreddit and post data from Reddit’s JSON API.                              |
+| `axios`                 | Handles HTTP requests between the React frontend and backend API.                                           |
 | `dotenv`                | Loads environment variables from `.env` file to **process.env**, keeping sensitive configuration from code. |
 | `react-dom`             | Renders React components into the browser's Document Object Model (DOM).                                    |
 | `react-hot-toast`       | Library for creating and renderting success and failure notification messages ("toasts").                   |
@@ -81,11 +87,18 @@ This is **Portfolio Project #5** for my Full-stack web development course on Cod
 | `passport-google-oauth20`| Passport strategy for authenticating users via Google OAuth 2.0, enabling Google login.                     |
 | `passport-local`         | Passport strategy for authenticating users with a username and password (local login).                      |
 | `pg`                     | Node.js library for interfacing with PostgreSQL, enabling database queries and operations.                  |
-| `stripe`                 | Enables backend integration with ***Stripe*** payment gateway for processing payments and transactions.      |
+| `stripe`                 | Enables backend integration with ***Stripe*** payment gateway for processing payments and transactions.     |
 | `swagger-jsdoc`          | Generates Swagger (OpenAPI) documentation from JSDoc comments in your codebase.                             |
 | `swagger-ui-express`     | Serves the Swagger UI so user and others can interactively explore and test the API endpoints.              |
 
 </details>
+
+---
+### Production Deployment
+
+The **live** portfolio version of this application is deployed using AWS infrastructure. The React/Vite frontend is hosted with Amazon S3 and CloudFront, while the Node.js/Express backend runs on Amazon EC2 behind Nginx. The production PostgreSQL database is hosted with Supabase.
+
+The local setup instructions later on <ins>**do not**</ins> require AWS and can be used to run the application locally.
 
 ---
 
@@ -93,7 +106,7 @@ This is **Portfolio Project #5** for my Full-stack web development course on Cod
 
 🔗 **Live Site:** [pern-saltwater-fish-ecommerce-store.livedemoapp.com](https://pern-saltwater-fish-ecommerce-store.livedemoapp.com/) *(Right-click to open in new tab for best experience)*
 
-<ins>**NOTE**</ins>: The above site link's domain may change from time to time, but the workflow and Url routes should stay the same. I'll go over the app's main pages in the order users would typically see in an E-commerce lifecycle workflow. 
+The following sections demonstrate the app's main pages and features in the order users would typically encounter them during an E-commerce workflow.
 
 ### 1. Home Page 
 The homepage—*whose url routes end with '../products/all'*—is the default page for the app. Here the user can browse through a variety of products. On the top, there's a header menu with several buttons and a search bar. The buttons left of the search bar are ***category*** buttons that display products based on selected category—*button highlighted dark blue*—when selected; only the ***all*** button shows all products. At the bottom of the products display is the pagination page button(s) which is used to browse products.
@@ -108,7 +121,7 @@ Besides filtering products via **"Category"** buttons, products can also be filt
 <img src="https://github.com/user-attachments/assets/f969da19-f56e-44d5-b47f-4f6236baa284" width="800" alt="image-of-search-results" />
 
 ### 4. About Page
-To help complete the feel of the fake E-commerce, I've included an ***About*** page explaining what the fake store is about. This ***About*** page can be accessed by clicking the green button—*with the "info" icon*—on the header menu.
+To help complete the feel of the demo E-commerce, I've included an ***About*** page explaining what the demo store is about. This ***About*** page can be accessed by clicking the green button—*with the "info" icon*—on the header menu.
 <img src="https://github.com/user-attachments/assets/b30db503-7859-4374-b3ac-b5a7efbd9b2f" width="800" alt="image-of-about-page" />
 
 ### 5. Cart Slider
@@ -157,12 +170,11 @@ Finally, The last major page is the Order History Page where the user can browse
 ---
 
 ## IV. Limitations of App
-<details>
-  <summary><strong>App Limitations (Click to Expand):</strong></summary>
-  <ul>
-    <li>Due to using free hosting for the app on <strong><ins>Render.com</ins></strong> and the database on <strong><ins>Neon.com</ins></strong>, the app from the live demo link (https://store.livedemoapp.com/) might have slow performance. Initially, you might have to wait 15-20 seconds for a page to fully render. After page caching takes place, the app should run notable faster. <em>In the future</em>, I'll consider dedicated hosting options to speed up performance.</li>
-    <li>On the order history page, I haven't added any type of order tracking for the orders. Due to this being a demo E-commerce store, there's no actual business infrastructure available to constantly keep track of orders; hence order tracking is irrelevant here.</li>
-  </ul>
+<details> 
+  <summary><strong>App Limitations (Click to Expand):</strong></summary> 
+  <ul> 
+    <li>Order tracking is not implemented because this is a demo E-commerce store and does not connect to a real-world order fulfillment or shipping service.</li> 
+  </ul> 
 </details>
 
 ---
@@ -186,10 +198,10 @@ Finally, The last major page is the Order History Page where the user can browse
   <li><strong><ins>Clone (or download) repository locally</ins>:</strong>
     <ul>
       <li><ins>Run the Git clone command</ins>:
-        <pre><code>git clone https://github.com/SattyikKundu/Codecademy-Portfolio-Project-5.git</code></pre>
+        <pre><code>git clone https://github.com/SattyikKundu/PERN-Saltwater-Fish-Ecommerce-Store.git</code></pre>
       </li>
       <li><ins>Change into the project folder</ins>:
-        <pre>cd repository-folder-name</pre>
+        <pre>cd PERN-Saltwater-Fish-Ecommerce-Store</pre>
       </li>
     </ul>
   </li>
@@ -207,10 +219,12 @@ Finally, The last major page is the Order History Page where the user can browse
     <ul>
       <li>Each folder (<code>/client</code> and <code>/server</code>) has its own <code>package.json</code>.</li>
       <li><ins>Install dependencies</ins>:
-        <pre>cd client
-npm install
-cd server
-npm install</pre>
+        <pre>
+          <code>
+cd client npm install 
+cd ../server npm install
+          </code>
+        </pre>
       </li>
     </ul>
   </li>
@@ -253,22 +267,20 @@ npm start</pre>
 
 ---
 
-## VI. Features to be Added Later
-
-<details>
-  <summary><strong>Future Features/Updated List (Click to Expand): </strong></summary>
-  <ul>
-    <li>Due to slower app performance from using free cloud hosting on Render.com, a dedicated(paid) hosting will later be added for faster performance speed.</li>
-    <li>Currently, the <strong>"Profile"</strong> and <strong>"Checkout"</strong> pages only accept U.S. addresses. This will later be expand so international addresses (outside the U.S.) can be processed.</li>
-    <li>Together with updating the App to accept international addresses, the app will also later handle non-dollar currencies used in international deliveries (<ins>Example</ins>: <em>yen</em> for Japanese addresses).</li>
-    <li>Besides the 15 products I currently have in my store's products display, I plan to slowly add more products over time. </li>
-  </ul>
+## VI. Potential Future Enhancements
+<details> 
+  <summary><strong>Potential Future Enhancements (Click to Expand):</strong></summary> 
+  <ul> 
+    <li>Currently, the <strong>Profile</strong> and <strong>Checkout</strong> pages only accept U.S. addresses. Support for international addresses could be added in the future.</li>
+    <li>Along with international address support, the app could also be expanded to support additional currencies for international purchases.</li> 
+    <li>The store currently contains 15 products. Additional products and product categories could be added in the future.</li> 
+  </ul> 
 </details>
 
 ---
 
 ## VII. Image Attributions
-Many images were obtained during the creation of this fake E-commerce store app. Also, *several* of these obtained images have been modified on Canva.com—*mostly to adjust images' contrast and brightness*—to better improve visuals on Final App. Click on below to toggle open/close image attribution links.
+Many images were obtained during the creation of this demo E-commerce store app. Also, *several* of these obtained images have been modified on Canva.com—*mostly to adjust images' contrast and brightness*—to better improve visuals on Final App. Click on below to toggle open/close image attribution links.
 
 <details>
   <summary><strong>Image Attributions List (Click to Expand):</strong></summary>
